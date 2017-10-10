@@ -1,0 +1,29 @@
+{
+  "name": "reservasi-dokter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kholes/reservasi-dokter.git"
+  },
+  "author": "kholes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kholes/reservasi-dokter/issues"
+  },
+  "homepage": "https://github.com/kholes/reservasi-dokter#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cryptorjs": "^2.0.2",
+    "ejs": "^2.5.7",
+    "express": "^4.16.1",
+    "express-session": "^1.15.6",
+    "pg": "^7.3.0",
+    "sequelize": "^4.13.8",
+    "sequelize-cli": "^3.0.0"
+  }
+}
