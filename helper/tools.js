@@ -1,5 +1,4 @@
 const cryptorjs = require('cryptorjs');
-const cryptorjs = require('cryptorjs');
 
 class Tools{
 	static isLogin(req,res,next){
