@@ -1,0 +1,250 @@
+html,body{
+	width:100%; background: #fff;
+}
+*{
+	margin:0;
+	text-decoration:none;
+	font-family:'Arial', sans-serif;
+}
+h2, h3 {
+	text-align: center;
+}
+h2 {
+	color: #FF7F00; 
+	padding: 7px;
+	font-size: 32px;
+	font-weight: normal
+}
+h3 {
+	font-size: 24px;
+	font-weight: normal;
+	color: #3B3B3B
+}
+h3 a {
+	font-size: 18px;
+	color: #104E8B;
+	text-transform: uppercase;
+}
+h3 a:hover {
+	color: #FF7F00
+}
+c,c5,c10 {
+	clear: both;
+}
+c5 {
+	height: 5px;
+}
+c10 {
+	height: 10px;
+}
+a {
+	text-decoration: none; 
+	color:#104E8B 
+}
+a:hover {
+	text-decoration: none; 
+	color:#FF7F00 
+}
+.top {
+	display:block;
+	width: 100%;
+	height: 150px; 
+	float: left;
+}
+.icon {
+	width: 150px;
+}
+.menu {
+	display:block; 
+    position: relative;
+    display: inline-block;
+	width: 100%; 
+	height: 50px; 
+	background: #333;
+}
+.menu ul{
+    position: relative;
+    display: inline-block;
+	list-style: none; 
+	margin:0; 
+	padding: 0; 
+	width: 100%;
+	margin: auto;
+}
+.menu ul li {
+	padding: 10px 10px; 
+	float: left
+}
+.menu ul li:hover {
+	cursor:pointer;
+}
+.menu ul li a { 
+	color: #fff; 
+	font-weight: bold;
+	padding: 10px;
+}
+.menu ul li ul {
+	display: none;
+    position: absolute;
+    z-index: 1;
+}
+.menu ul li a {
+	color: #fff; 
+	font-weight: bold;
+}
+.menu ul li:hover a {
+	color:#FF7F00 
+}
+.menu ul li:hover ul {
+	display: block;
+	width: 200px;
+	background: #333;
+	padding-top: 12px; 
+}
+.menu ul li:hover ul li {
+	width: 200px;
+	background: #555;
+}
+.menu ul li:hover ul li:hover a {
+	color:#fff;
+}
+.menu ul li:hover ul li:hover {
+	cursor: pointer;
+}
+.menu i {
+	font-size: 28px;
+}
+.container {
+	display: table; 
+	min-width: 980px;
+	padding: 5px;
+	margin: auto;
+	min-height: 100%; 
+	padding-bottom: 30px; 
+}
+table{
+	width: 100%; 
+	margin-top: 20px;
+}
+table th{
+	text-align: left; 
+	padding: 10px; 
+	color: #fff;
+	background: #EE7600;
+}
+table td{
+	text-align: left; 
+	padding: 10px; 
+	background: #fff; 
+	border-bottom: 1px solid #ccc;
+	vertical-align: top;
+}
+.btn {
+	font-size: 22px; 
+	cursor: pointer; 
+}
+.btn a { 
+	color: #FF7F00;
+}
+.btn a:hover {
+	color: #FF8C00;
+}
+form {
+	display: block; 
+	width: 400px; 
+	margin: auto; 
+	margin-top: 20px;
+}
+form p {
+	padding:10px 0; 
+	letter-spacing: 1px; 
+	color: #666
+}
+form input[type='text']{
+	width:90%;
+	border:1px solid #ccc; 
+	height: 35px;
+}
+form input[type='password']{
+	width:90%;
+	border:1px solid #ccc; 
+	height: 35px;
+}
+form select{
+	width:90%;
+	border:1px solid #ccc; 
+	height: 35px; 
+	padding: 7px;
+}
+form input[type='submit']{
+	border:1px solid #333;
+	width:90%; 
+	color:#fff; 
+	font-size: 20px;
+	text-transform: uppercase;
+	font-weight: bold;
+	letter-spacing: 1px;
+	background:#333; 
+	min-height: 35px; 
+	padding: 15px 10px; 
+	cursor: pointer;
+	margin-top:20px; 
+}
+form input[type='submit']:hover {
+	color: #FF7F00;
+}
+
+form>table{
+	width: 100%; 
+}
+form>table td{
+	text-align: left; 
+	border: none;
+	background: #fff; 
+	vertical-align: top;
+}
+.login {
+	display:block;
+	text-align: center;
+	width: 400px;
+	margin: auto;
+	margin-top: 10%;
+	background: #000;
+	padding-bottom:20px; 
+	border-radius:10px;
+	border-bottom: 5px solid #ccc;
+	border-left: 3px solid #ccc;
+}
+.login p{
+	text-transform: uppercase;
+	font-size: 18px;
+	letter-spacing: 1px;
+}
+.login input[type='text']{
+	font-color: #666;
+	font-size: 20px;
+	text-align: center;
+	padding: 0;
+}
+.login input[type='password']{
+	font-color: #666;
+	font-size: 20px;
+	text-align: center;
+	padding: 0;
+}
+.msg {
+	text-align: center;
+	padding: 10px;
+	letter-spacing: 1px;
+}
+.signup {
+	display: block;
+	width: 100%;
+	height:20px;
+	padding: 20px 0;
+	background: #ddd;
+	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-weight: bold;
+}
