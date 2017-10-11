@@ -1,0 +1,28 @@
+<%-include ../partial/header%>
+<body>
+<%-include ../partial/menu%>
+<div class="container">
+<h3>Add Customer</h3>
+<form action="/customers/add" method="post">
+<p>Name</p>
+<input type="text" name="name" placeholder="ex: Mr. Jaya Suprana">
+<p>Address</p>
+<input type="text" name="address" placeholder="ex: Jl. Perjuangan No.10">
+<p>Phone</p>
+<input type="text" name="phone" placeholder="ex: 0813 1745 2255">
+<p>Email</p>
+<input type="text" name="email" placeholder="ex: yourmail@mail.com">
+<p>User ID</p>
+<select name="UserId">
+	<option value="">-- NONE --</option>
+	<%users.forEach(user => {%>
+	<option value="<%-user.id%>"><%-user.username%></option>
+	<%})%>
+</select>
+<p>
+<input type="submit" value="Add Customer">
+</p>
+</form>
+</div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<%-include ../partial/header%>
+<body>
+<%-include ../partial/menu%>
+<div class="container">
+<h3>Doctors List</h3>
+<h3><a href="/doctors/add">Add Doctor</a></h3>
+<table>
+	<th>Name</th>
+	<th>Specialist</th>
+	<th>Address</th>
+	<th>Email</th>
+	<th>Account</th>
+	<th colspan="2">Action</th>
+	<% data.forEach((i,no) => {%>
+	<tr>
+		<td><%-i.name%></td>
+		<td><%-i.specialist%></td>
+		<td><%-i.address%></td>
+		<td><%-i.email%></td>
+		<td><%-i.username%></td>
+		<td><a href="/doctors/edit/<%-i.id%>">Edit</a></td>
+		<td><a href="/doctors/delete/<%-i.id%>">Delete</a></td>
+	</tr>
+	<%})%>
+</table>
+</div>
+</body>
+</html>
