@@ -1,9 +1,89 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
+<%-include partial/header%>
 <body>
-<h3>RESERVASI DOKTER</h3>
+	<%-include partial/menu%>
+	<div class="container">
+		<div class="row">
+			<div class="sidebar">
+				<div class="login">
+					<div class="top">
+						<h3><i class="fa fa-calendar"></i> Pilih tanggal</h3>
+					</div>
+					<div class="calendar"></div>
+				</div>
+			</div>
+			<div class="content">
+				<div class="top">
+					<h3><i class="fa fa-check-square-o"></i> Reservasi</h3>
+				</div>
+				<form action="/reservations" method="post">
+					<input type="hidden" name="tanggal" value="" id="box">
+					<table>
+						<th>Hari</th>
+						<th>Jam</th>
+						<th>Dokter</th>
+						<th style="text-align:center">Pilihan</th>
+						<%for(let i=0;i < 7;i++){%>
+						<tr>
+							<td>Senin</td>
+							<td><input type="time" name="jam<%-i%>" value="9:00 s/d 15:00"></td>
+							<td>dr. Prana Jaya Saputra,Spa</td>
+							<td style="text-align:center"><input name="id[]" type="checkbox" value	
+						</tr>
+						<%}%>
+					</table>
+					<input type="submit" value="Pesan" style="float: right;">
+				</form>
+				<div style="margin-top: 5px"></div>
+			</div>
+		</div>
+		<div class="c10"></div>
+		<div class="row">
+				<div class="top">
+					<h3><i class="fa fa-user-md"></i> Jadwal Praktek Dokter</h3>
+				</div>
+				<table>
+					<th>Hari</th>
+						<th>Poli Umum</th>
+						<th>Kebidanan</th>
+						<th>Poli Gigi</th>
+						<th>Poli Anak</th>
+					<tr>
+						<td>Senin</td>
+						<td>9:00 s/d 15:00</td>
+						<td>11:00 s/d 17:00</td>
+					</tr>
+					<tr>
+						<td>Senin</td>
+						<td>9:00 s/d 15:00</td>
+						<td>11:00 s/d 17:00</td>
+					</tr>
+					<tr>
+						<td>Rabu</td>
+						<td>9:00 s/d 15:00</td>
+						<td>11:00 s/d 17:00</td>
+					</tr>
+					<tr>
+						<td>Kamis</td>
+						<td>9:00 s/d 15:00</td>
+						<td>11:00 s/d 17:00</td>
+					</tr>
+					<tr>
+						<td>Jum'at</td>
+						<td>9:00 s/d 15:00</td>
+						<td>11:00 s/d 17:00</td>
+					</tr>
+					<tr>
+						<td>Sabtu</td>
+						<td>9:00 s/d 15:00</td>
+						<td>11:00 s/d 17:00</td>
+					</tr>
+					<tr>
+						<td>Minggu</td>
+						<td>9:00 s/d 15:00</td>
+						<td>11:00 s/d 17:00</td>
+					</tr>
+				</table>
+		</div>		
+	</div>
 </body>
 </html>

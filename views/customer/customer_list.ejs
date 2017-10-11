@@ -1,0 +1,28 @@
+<%-include ../partial/header%>
+<body>
+<%-include ../partial/menu%>
+<div class="container">
+<h3>Customer List</h3>
+<h3><a href="/customers/add">Add Customer</a></h3>
+<table>
+	<th>No</th>
+	<th>Name</th>
+	<th>Address</th>
+	<th>Email</th>
+	<th>Account</th>
+	<th colspan="2">Action</th>
+	<% data.forEach((i,no) => {%>
+	<tr>
+		<td><%-no+1%></td>
+		<td><%-i.name%></td>
+		<td><%-i.address%></td>
+		<td><%-i.email%></td>
+		<td><%-i.username%></td>
+		<td><a href="/customers/edit/<%-i.id%>">Edit</a></td>
+		<td><a href="/customers/delete/<%-i.id%>">Delete</a></td>
+	</tr>
+	<%})%>
+</table>
+</div>
+</body>
+</html>

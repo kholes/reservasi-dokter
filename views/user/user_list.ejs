@@ -1,0 +1,26 @@
+<%-include ../partial/header%>
+<body>
+<%-include ../partial/menu%>
+<div class="container">
+<h3>User List</h3>
+<h3><a href="/users/add">Add User</a></h3>
+<table>
+	<th>No</th>
+	<th>Username</th>
+	<th>Password</th>
+	<th>Role</th>
+	<th colspan="2">Action</th>
+	<% data.forEach((i,no) => {%>
+	<tr>
+		<td><%-no+1%></td>
+		<td><%-i.username%></td>
+		<td><%-i.password%></td>
+		<td><%-i.role%></td>
+		<td><a href="/users/edit/<%-i.id%>">Edit</a></td>
+		<td><a href="/users/delete/<%-i.id%>">Delete</a></td>
+	</tr>
+	<%})%>
+</table>
+</div>
+</body>
+</html>

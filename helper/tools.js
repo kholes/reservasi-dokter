@@ -1,11 +1,10 @@
 const cryptorjs = require('cryptorjs');
-
 class Tools{
 	static isLogin(req,res,next){
 	  	if(req.session.isLogin){
 	    	next()
 	  	}else{
-	    	res.render('login', {msg:'',title:'User Login!'});
+	    	res.render('index', {msg:'',title:'User Login!'});
 	  	}
 	}
 	static salt(){
