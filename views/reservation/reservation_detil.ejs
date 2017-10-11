@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Rerservation Order</title>
+  </head>
+  <body>
+    <h1>Detil Rerservation Order</h1>
+    <a href="/">Return to Home</a><br><br>
+    Id Order : <br>
+    <input type="text" name="" value="<%=detilReservation[0].id%>"> <br>
+    Nama : <br>
+    <input type="text" name="" value="<%=detilReservation[0].Customer.name%>"> <br>
+    Tanggal Konsultasi : <br>
+    <input type="text" name="" value="<%=detilReservation[0].date%>"> <br>
+    Hari Konsultasi : <br>
+    <input type="text" name="" value="<%=detilReservation[0].Schedule.day%>"> <br>
+    Jam Konsultasi : <br>
+    <input type="text" name="" value="<%=detilReservation[0].Schedule.time%>"> <br>
+    Dokter : <br>
+    <input type="text" name="" value="<%=detilReservation[0].Schedule.doctor_name%>">
+    <br>
+    Spesialist : <br>
+    <input type="text" name="" value="<%=detilReservation[0].Schedule.doctor_specialist%>">
+  </body>
+</html>

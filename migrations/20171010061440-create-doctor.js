@@ -23,6 +23,9 @@ module.exports = {
       UserId: {
         type: Sequelize.INTEGER
       },
+      specialist: {
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

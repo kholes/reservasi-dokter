@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Schedule</title>
+  </head>
+  <body>
+    <h1>Schedule List</h1>
+    <a href="/">Return to Home</a><br><br>
+    <a href="/schedules/add"><button type="button" name="button">Add Data</button></a>
+    <table>
+      <thead>
+        <th>No</th>
+        <th>Hari</th>
+        <th>Jam</th>
+        <th>Max Customer</th>
+        <th>Dokter</th>
+        <th>Spesialis</th>
+        <th>Options</th>
+      </thead>
+      <tbody>
+        <%let no=0; if (dataSchedule){dataSchedule.forEach(rows=>{no++%>
+          <tr>
+            <td><%=no%></td>
+            <td><%=rows.day%></td>
+            <td><%=rows.time%></td>
+            <td><%=rows.max_customer%></td>
+            <td><%=rows.Doctor.name%></td>
+            <td><%=rows.Doctor.specialist%></td>
+            <td>
+              <a href="/schedules/edit/<%=rows.id%>">Edit</a>
+              <a href="#">|</a>
+              <a onclick="return confirm('Are you sure to delete this data?')" href="/schedules/delete/<%=rows.id%>">Delete</a>
+            </td>
+          </tr>
+        <%})}%>
+      </tbody>
+    </table>
+  </body>
+</html>

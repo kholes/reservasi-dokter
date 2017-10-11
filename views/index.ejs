@@ -1,9 +1,35 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title></title>
-</head>
-<body>
-<h3>RESERVASI DOKTER</h3>
-</body>
+	<head>
+		<title></title>
+	</head>
+	<body>
+		<h3>RESERVASI DOKTER</h3>
+		<a href="/schedules">Schedule</a>
+		<a href="/reservations/cancellation/<%=1%>">Order Cancellation</a>
+		<table>
+			<thead>
+				<th>No</th>
+				<th>Hari</th>
+				<th>Jam</th>
+				<th>Dokter</th>
+				<th>Spesialis</th>
+				<th>Options</th>
+			</thead>
+			<tbody>
+				<%let= urut=0; if (dataSchedule){dataSchedule.forEach(rows=>{urut++;%>
+					<tr>
+						<td><%=urut%></td>
+						<td><%=rows.day%></td>
+						<td><%=rows.time%></td>
+						<td><%=rows.Doctor.name%></td>
+						<td><%=rows.Doctor.specialist%></td>
+						<td>
+							<a href="/reservations/add/<%=rows.id%>">Pesan</a>
+						</td>
+					</tr>
+				<%})}%>
+			</tbody>
+		</table>
+	</body>
 </html>

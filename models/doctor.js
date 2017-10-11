@@ -5,7 +5,8 @@ module.exports = function(sequelize, DataTypes) {
     address: DataTypes.STRING,
     phone: DataTypes.STRING,
     email: DataTypes.STRING,
-    UserId: DataTypes.INTEGER
+    UserId: DataTypes.INTEGER,
+    specialist: DataTypes.STRING
   }, {
     classMethods: {
       associate: function(models) {
@@ -13,5 +14,8 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
   });
+  Doctor.associate=function (models){
+    Doctor.hasMany(models.Schedule);
+  }
   return Doctor;
 };

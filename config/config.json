@@ -1,7 +1,7 @@
 {
   "development": {
-    "username": "javas",
-    "password": "1234",
+    "username": "postgres",
+    "password": "postgres",
     "database": "reservation",
     "host": "127.0.0.1",
     "port":5432,

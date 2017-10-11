@@ -9,13 +9,17 @@ app.set('view engine', 'ejs');
 let path = require('path')
 // let login = require('./routs/login')
 // let signup = require('./routs/signup')
-let index = require('./routs/index')
+const index = require('./routs/index')
+const schedule = require('./routs/schedule')
+const reservation = require('./routs/reservation')
 app.use(session({
   secret:'secret',
   cookies:{}
 }))
 app.use('/static',express.static(__dirname + '/asset'));
 app.use('/', index);
+app.use('/schedules', schedule);
+app.use('/reservations', reservation);
 // app.use('/signup', signup);
 // app.use('/login', login);
 // app.use('/', tools.isLogin, index)

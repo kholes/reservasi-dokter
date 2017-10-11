@@ -13,5 +13,8 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
   });
+  Customer.associate=function (models){
+    Customer.belongsToMany(models.Schedule, {through:'Reservation'});
+  }
   return Customer;
 };

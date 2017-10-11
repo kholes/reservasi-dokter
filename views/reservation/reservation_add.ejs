@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Pesan Tempat</title>
+  </head>
+  <body>
+    <h1>Pesan Tempat</h1>
+    <a href="/">Return to Home</a><br><br>
+    <%=message%>
+    <form class="" action="/reservations/add/<%=dataSchedule[0].id%>" method="post">
+      Customer: <br>
+      <select class="" name="CustomerId">
+        <%if (dataCustomer){dataCustomer.forEach(rows=>{%>
+          <option value="<%=rows.id%>"><%=rows.name%></option>
+        <%})}%>
+      </select><br>
+      Hari : <br>
+      <input type="text" name="day" value="<%=dataSchedule[0].day%>"><br>
+      Dokter : <br>
+      <input type="text" name="doctor" value="<%=dataSchedule[0].Doctor.name%>"><br>
+      Spesialis : <br>
+      <input type="text" name="specialist" value="<%=dataSchedule[0].Doctor.specialist%>"><br>
+      Tanggal : <br>
+      <%let date_conv = new Date()%>
+    	<%let date = date_conv.getFullYear() + '-' + +(date_conv.getMonth()+1) + '-' + date_conv.getDate()%>
+      <input type="date" name="date" value="<%=date%>"><br><br>
+      <button type="submit" name="button">Pesan</button>
+    </form>
+  </body>
+</html>
