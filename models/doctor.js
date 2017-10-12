@@ -1,5 +1,5 @@
 'use strict';
-const model = require('../models')
+const models = require('../models')
 module.exports = function(sequelize, DataTypes) {
   var Doctor = sequelize.define('Doctor', {
     name: DataTypes.STRING,
@@ -25,8 +25,9 @@ module.exports = function(sequelize, DataTypes) {
     UserId: DataTypes.INTEGER,
     specialist: DataTypes.STRING
   });
-  Doctor.associate = (model) => {
-    Doctor.belongsTo(model.User)
+  Doctor.associate=function (models){
+    Doctor.hasMany(models.Schedule);
+    Doctor.belongsTo(models.User)
   }
   return Doctor;
 };

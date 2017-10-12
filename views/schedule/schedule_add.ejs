@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Add Data Schedule</title>
+  </head>
+  <body>
+    <h1>Add Data Schedules</h1>
+    <a href="/schedules">Return to Schedule</a><br><br>
+    <form class="" action="/schedules/add" method="post">
+      Hari:<br>
+      <select class="" name="day">
+        <%if (hari){hari.forEach(rows=>{%>
+          <option value="<%=rows.hari%>"><%=rows.hari%></option>
+        <%})}%>
+      </select><br>
+      Jam:<br>
+      <%let waktu_conv = new Date()%>
+    	<%let jam = waktu_conv.getHours()%>
+      <%let menit = waktu_conv.getMinutes()%>
+      <%let waktu = '0'+jam+':'+menit%>
+      <input type="time" name="time" value="<%=waktu%>"><br>
+      </script>
+      Dokter: <br>
+      <select class="" name="DoctorId">
+        <%if (dataDoctor){dataDoctor.forEach(rows=>{%>
+          <option value="<%=rows.id%>"><%=rows.name%></option>
+        <%})}%>
+      </select><br>
+      Maximum Pelanggan:<br>
+      <input type="text" name="max_customer" value=""><br><br>
+      <button type="submit" name="button">Add Schedule</button>
+    </form>
+  </body>
+</html>

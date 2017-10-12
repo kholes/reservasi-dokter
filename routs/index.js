@@ -1,13 +1,32 @@
 const express = require('express')
 const session = require('express-session')
 const router = express.Router()
-const model = require('../models')
+const models = require('../models')
 const tools = require('../helper/tools')
+// const Sequelize = require('sequelize');
+
 router.get('/',tools.isLogin,(req,res) => {
-	res.render('dashboard')
+	// res.render('dashboard')
+	models.Schedule.findAll({
+		// where:{
+			// date:new Date()
+			// date:`${date}`
+			// date:`${date}`
+			// date:'2017:10:10'
+		// },
+		include:[{
+			model:models.Doctor
+		}]
+	})
+	.then(rowsSchedule=>{
+		// models.
+		// console.log(rowsSchedule);
+		// res.send(rowsSchedule)
+		res.render('dashboard',{dataSchedule:rowsSchedule})
+	})
 })
 router.get('/login', (req,res) => {
-	model.User.findOne({where:{username:req.body.username}})
+	models.User.findOne({where:{username:req.body.username}})
 	.then(user => {
 		if(user) {
 			let oldPass = user.password
@@ -29,5 +48,6 @@ router.get('/login', (req,res) => {
 })
 router.get('/logout', (req,res) => {
 	req.session.destroy()
+
 })
 module.exports = router

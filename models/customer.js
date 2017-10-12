@@ -5,7 +5,7 @@ module.exports = function(sequelize, DataTypes) {
     address: DataTypes.STRING,
     phone: DataTypes.STRING,
     email: {
-      type: DataTypes.STRING, 
+      type: DataTypes.STRING,
       validate:{
         isEmail: {
           msg:'Email not valid!'
@@ -23,8 +23,10 @@ module.exports = function(sequelize, DataTypes) {
     },
     UserId: DataTypes.INTEGER
   });
-  Customer.associate = (model) => {
-    Customer.belongsTo(model.User)
+
+  Customer.associate=function (models){
+    Customer.belongsToMany(models.Schedule, {through:'Reservation'});
+    Customer.belongsTo(models.User)
   }
   return Customer;
 };

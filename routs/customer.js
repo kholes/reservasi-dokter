@@ -13,7 +13,7 @@ router.get('/', (req,res) => {
 			})
 		})
 		Promise.all(prom).then(customers => {
-			res.render('customer/customer_list', {data:customers})
+			res.render('./customer/customer_list', {data:customers})
 		}).catch(err => {
 			res.send(err)
 		})
@@ -23,7 +23,7 @@ router.get('/', (req,res) => {
 })
 router.get('/add', (req,res) => {
 	model.User.findAll().then(users => {
-		res.render('customer/customer_add', {msg:'',users:users})
+		res.render('./customer/customer_add', {msg:'',users:users})
 	})
 	.then(err => {
 		res.send(err)
@@ -44,7 +44,7 @@ router.get('/edit/:id', (req,res) => {
 		customer.getUser().then(user => {
 			customer['username'] = user.username
 			model.User.findAll().then(users => {
-				res.render('customer/customer_edit', {data:customer,users:users})
+				res.render('./customer/customer_edit', {data:customer,users:users})
 			})
 		})
 	})

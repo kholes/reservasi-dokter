@@ -15,21 +15,27 @@
 				<div class="top">
 					<h3><i class="fa fa-check-square-o"></i> Reservasi</h3>
 				</div>
-				<form action="/reservations" method="post">
+				<form action="/reservations/add/" method="post">
 					<input type="hidden" name="tanggal" value="" id="box">
 					<table>
 						<th>Hari</th>
 						<th>Jam</th>
 						<th>Dokter</th>
+						<th>Spesialis</th>
 						<th style="text-align:center">Pilihan</th>
-						<%for(let i=0;i < 7;i++){%>
-						<tr>
-							<td>Senin</td>
-							<td><input type="time" name="jam<%-i%>" value="9:00 s/d 15:00"></td>
-							<td>dr. Prana Jaya Saputra,Spa</td>
-							<td style="text-align:center"><input name="id[]" type="checkbox" value	
-						</tr>
-						<%}%>
+						<%let urut=0; if (dataSchedule){dataSchedule.forEach(rows=>{urut++;%>
+							<tr>
+								<td><%=rows.day%></td>
+								<td><%=rows.time%></td>
+								<td><%=rows.Doctor.name%></td>
+								<td><%=rows.Doctor.specialist%></td>
+								<td>
+									<a href="/reservations/add/<%=rows.id%>">Pesan</a>									
+									<!-- <input type="checkbox" name="/reservations/add/<%=rows.id%>" value="Pesan"> -->
+									<!-- <a href="/reservations/add/<%=rows.id%>">Pesan</a> -->
+								</td>
+							</tr>
+						<%})}%>
 					</table>
 					<input type="submit" value="Pesan" style="float: right;">
 				</form>
@@ -83,7 +89,7 @@
 						<td>11:00 s/d 17:00</td>
 					</tr>
 				</table>
-		</div>		
+		</div>
 	</div>
 </body>
 </html>

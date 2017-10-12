@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Rerservation Order</title>
+  </head>
+  <body>
+    <h1>Detil Rerservation Order</h1>
+    <a href="/">Return to Home</a><br><br>
+    <%if (dataReservation.length>0){%>
+      <form class="" action="/reservations/cancellation/<%=dataReservation[0].CustomerId%>" method="post">
+    <%} else {%>
+      <form class="" action="/reservations/cancellation/%>" method="post">
+    <%}%>
+      <table>
+        <thead>
+          <th>Id Order</th>
+          <th>Tgl Order</th>
+          <th>Tgl Konsul</th>
+          <th>Hari Konsul</th>
+          <th>Jam Konsul</th>
+          <th>Nama Dokter</th>
+          <th>Spesilis</th>
+          <th>Cek</th>
+        </thead>
+        <tbody>
+          <%if (dataReservation.length>0){dataReservation.forEach(rows=>{%>
+            <tr>
+              <td><%=rows.id%></td>
+              <%let date_conv = rows.createdAt%>
+            	<%let date = date_conv.getFullYear() + '-' + +(date_conv.getMonth()+1) + '-' + date_conv.getDate()%>
+              <td><%=date%></td>
+              <td><%=rows.date%></td>
+              <td><%=rows.Schedule.day%></td>
+              <td><%=rows.Schedule.time%></td>
+              <td><%=rows.Schedule.doctor_name%></td>
+              <td><%=rows.Schedule.doctor_specialist%></td>
+              <td><input type="checkbox" name="<%=rows.id%>" value=""></td>
+            </tr>
+          <%})}%>
+        </tbody>
+      </table>
+      <input type="submit" name="" value="Proses Pembatalan">
+    </form>
+  </body>
+</html>

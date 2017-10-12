@@ -8,8 +8,9 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      DoctorId: {
-        type: Sequelize.INTEGER
+      date: {
+        allowNull: false,
+        type: Sequelize.DATEONLY
       },
       ScheduleId: {
         type: Sequelize.INTEGER

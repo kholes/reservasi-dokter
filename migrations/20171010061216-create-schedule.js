@@ -14,6 +14,9 @@ module.exports = {
       time: {
         type: Sequelize.STRING
       },
+      max_customer: {
+        type: Sequelize.INTEGER
+      },
       DoctorId: {
         type: Sequelize.INTEGER
       },

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Add Data Schedule</title>
+  </head>
+  <body>
+    <h1>Add Data Schedules</h1>
+    <a href="/schedules">Return to Schedule</a><br><br>
+    <form class="" action="/schedules/edit/<%=dataSchedule.id%>" method="post">
+      Hari:<br>
+      <select class="" name="day">
+        <%if (hari){hari.forEach(rows=>{%>
+          <%if (dataSchedule.day==rows.hari){%>
+          <option value="<%=rows.hari%>" selected><%=rows.hari%></option>
+          <%} else {%>
+          <option value="<%=rows.hari%>"><%=rows.hari%></option>
+        <%}})}%>
+      </select><br>
+      Jam:<br>
+      <input type="time" name="time" value="<%=dataSchedule.time%>"><br>
+      Dokter: <br>
+      <select class="" name="DoctorId">
+        <%if (dataDoctor){dataDoctor.forEach(rows=>{%>
+          <%if (dataSchedule.DoctorId==rows.id){%>
+            <option value="<%=rows.id%>" selected><%=rows.name%></option>
+          <%} else {%>
+            <option value="<%=rows.id%>"><%=rows.name%></option>
+        <%}})}%>
+      </select><br>
+      Maximum Pelanggan:<br>
+      <input type="text" name="max_customer" value="<%=dataSchedule.max_customer%>"><br><br>
+      <button type="submit" name="button">Edit Schedule</button>
+    </form>
+  </body>
+</html>
