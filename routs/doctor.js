@@ -7,7 +7,12 @@ router.get('/', (req,res) => {
 		let prom = doctors.map(doctor => {
 			return new Promise((resolve,reject) => {
 				doctor.getUser().then(user => {
-					doctor['username'] = user.username
+					if(user){
+						doctor['username'] = user.username
+					}
+					else {
+						doctor['username'] = "<p style='color:red'>empty</p>"						
+					}
 					resolve(doctor)
 				})
 			})

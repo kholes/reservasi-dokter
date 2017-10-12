@@ -1,15 +1,10 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Schedule</title>
-  </head>
-  <body>
-    <h1>Schedule List</h1>
-    <a href="/">Return to Home</a><br><br>
-    <a href="/schedules/add"><button type="button" name="button">Add Data</button></a>
+<%-include ../partial/header%>
+<body>
+<%-include ../partial/menu%>
+  <div class="container">
+    <h3>Schedule List</h3>
+    <h3><a href="/schedules/add">Add Doctor</a></h3>
     <table>
-      <thead>
         <th>No</th>
         <th>Hari</th>
         <th>Jam</th>
@@ -17,8 +12,6 @@
         <th>Dokter</th>
         <th>Spesialis</th>
         <th>Options</th>
-      </thead>
-      <tbody>
         <%let no=0; if (dataSchedule){dataSchedule.forEach(rows=>{no++%>
           <tr>
             <td><%=no%></td>
@@ -34,7 +27,7 @@
             </td>
           </tr>
         <%})}%>
-      </tbody>
     </table>
+  </div>
   </body>
 </html>

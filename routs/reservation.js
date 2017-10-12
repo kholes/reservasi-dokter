@@ -1,20 +1,25 @@
 const express = require('express')
 const router = express.Router()
 const models = require('../models')
-
+const tools = require('../helper/tools')
+// router.post('/add/:id', (req,res) => {
+//   models.Schedule.findAll({where:{id:req.params.id},include:[{model:models.Doctor}]})
+//   .then(rowsSchedule=>{
+//     models.Customer.findAll()
+//     .then(rowsCustomer=>{
+//       res.render('./reservation/reservation_add',{data:req.body,dataSchedule:rowsSchedule,dataCustomer:rowsCustomer,message:''});
+//     })
+//   })
+// })
 router.get('/add/:id', (req,res) => {
-  models.Schedule.findAll({
-    where:{
-      id:req.params.id
-    },
-    include:[{
-      model:models.Doctor}]
-  })
+  if(!req.session.isLogin) {
+    res.redirect('/login/reservation/'+req.params.id)
+  }
+  models.Schedule.findAll({where:{id:req.params.id},include:[{model:models.Doctor}]})
   .then(rowsSchedule=>{
     models.Customer.findAll()
     .then(rowsCustomer=>{
-      // res.send(rowsSchedule)
-      res.render('./reservation/reservation_add',{dataSchedule:rowsSchedule,dataCustomer:rowsCustomer,message:''});
+      res.render('./reservation/reservation_add',{sessionId:req.session.user.idUser,dataSchedule:rowsSchedule,dataCustomer:rowsCustomer,message:''});
     })
   })
   .catch(err=>{

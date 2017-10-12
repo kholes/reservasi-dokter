@@ -1,25 +1,25 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Add Data Schedule</title>
-  </head>
-  <body>
-    <h1>Add Data Schedules</h1>
-    <a href="/schedules">Return to Schedule</a><br><br>
+<%-include ../partial/header%>
+<body>
+<%-include ../partial/menu%>
+<div class="container">
+    <h3>Edit Doctor</h3>
     <form class="" action="/schedules/edit/<%=dataSchedule.id%>" method="post">
-      Hari:<br>
-      <select class="" name="day">
+      <p>Hari:</p>
+      <select name="day">
         <%if (hari){hari.forEach(rows=>{%>
           <%if (dataSchedule.day==rows.hari){%>
           <option value="<%=rows.hari%>" selected><%=rows.hari%></option>
           <%} else {%>
           <option value="<%=rows.hari%>"><%=rows.hari%></option>
         <%}})}%>
-      </select><br>
-      Jam:<br>
-      <input type="time" name="time" value="<%=dataSchedule.time%>"><br>
-      Dokter: <br>
+      </select>
+      <p>
+      Jam:
+      </p>
+      <input type="time" name="time" value="<%=dataSchedule.time%>">
+      <p>
+      Dokter:
+      </p>
       <select class="" name="DoctorId">
         <%if (dataDoctor){dataDoctor.forEach(rows=>{%>
           <%if (dataSchedule.DoctorId==rows.id){%>
@@ -27,10 +27,13 @@
           <%} else {%>
             <option value="<%=rows.id%>"><%=rows.name%></option>
         <%}})}%>
-      </select><br>
-      Maximum Pelanggan:<br>
-      <input type="text" name="max_customer" value="<%=dataSchedule.max_customer%>"><br><br>
-      <button type="submit" name="button">Edit Schedule</button>
+      </select>
+      <p>
+      Maximum Pelanggan:
+      </p>
+      <input type="text" name="max_customer" value="<%=dataSchedule.max_customer%>">
+      <input type="submit" value="Edit Schedule">
     </form>
+    </div>
   </body>
 </html>

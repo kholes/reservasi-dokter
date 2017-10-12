@@ -1,5 +1,4 @@
 'use strict';
-const tools = require('../helper/tools')
 module.exports = function(sequelize, DataTypes) {
   var User = sequelize.define('User', {
     username: {
@@ -25,6 +24,7 @@ module.exports = function(sequelize, DataTypes) {
   {
     hooks: {
       beforeCreate: (data) => {
+        const tools = require('../helper/tools')
         let newPass = tools.cryptor(data.salt,data.password)
         data.password = newPass
       } 
