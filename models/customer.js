@@ -4,17 +4,29 @@ module.exports = function(sequelize, DataTypes) {
     name: DataTypes.STRING,
     address: DataTypes.STRING,
     phone: DataTypes.STRING,
-    email: DataTypes.STRING,
-    UserId: DataTypes.INTEGER
-  }, {
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
+    email: {
+      type: DataTypes.STRING,
+      validate:{
+        isEmail: {
+          msg:'Email not valid!'
+        },
+        isUnique: function(value,next) {
+          Customer.findOne({where:{email:value}}).then(customer => {
+            if(customer) {
+              next('Email already exist!')
+            } else {
+              next()
+            }
+          })
+        }
       }
-    }
+    },
+    UserId: DataTypes.INTEGER
   });
+
   Customer.associate=function (models){
     Customer.belongsToMany(models.Schedule, {through:'Reservation'});
+    Customer.belongsTo(models.User)
   }
   return Customer;
 };

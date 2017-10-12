@@ -15,9 +15,12 @@
         <%})}%>
       </select><br>
       Jam:<br>
-      <%let time_conv = new Date()%>
-    	<%let time = time_conv.getHours() + ':' + time_conv.getMinutes()%>
-      <input type="time" name="time" value="<%=time%>"><br>
+      <%let waktu_conv = new Date()%>
+    	<%let jam = waktu_conv.getHours()%>
+      <%let menit = waktu_conv.getMinutes()%>
+      <%let waktu = '0'+jam+':'+menit%>
+      <input type="time" name="time" value="<%=waktu%>"><br>
+      </script>
       Dokter: <br>
       <select class="" name="DoctorId">
         <%if (dataDoctor){dataDoctor.forEach(rows=>{%>

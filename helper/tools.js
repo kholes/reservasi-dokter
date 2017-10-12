@@ -1,11 +1,20 @@
 const cryptorjs = require('cryptorjs');
-
+const models = require('../models')
 class Tools{
 	static isLogin(req,res,next){
 	  	if(req.session.isLogin){
 	    	next()
 	  	}else{
-	    	res.render('login', {msg:'',title:'User Login!'});
+				models.Schedule.findAll({
+					include:[{
+						model:models.Doctor
+					}]
+				})
+				.then(rowsSchedule=>{
+					// res.render('dashboard',{dataSchedule:rowsSchedule})
+					res.render('index', {dataSchedule:rowsSchedule,msg:'',title:'User Login!'});
+				})
+
 	  	}
 	}
 	static salt(){
