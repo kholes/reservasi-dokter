@@ -1,0 +1,22 @@
+<%-include partial/header%>
+<body>
+<div class="container-login">
+	<div class="login">
+		<div class="top">
+			<h3><i class="fa fa-key"></i> Login</h3>
+		</div>
+		<form action="/login" method="post">
+		<p>
+			Username
+		</p>
+		<input type="text" name="username" placeholder="ex: user">
+		<p>
+			Password
+		</p>
+		<input type="password" name="password" placeholder="ex: user123">
+		<input type="submit" value="Login">
+		</form>
+		<%-msg%>
+	</div>
+</div>
+</body>

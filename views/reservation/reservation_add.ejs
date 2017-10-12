@@ -8,13 +8,9 @@
     <h1>Pesan Tempat</h1>
     <a href="/">Return to Home</a><br><br>
     <%=message%>
+    <%-data.tanggal%>
     <form class="" action="/reservations/add/<%=dataSchedule[0].id%>" method="post">
-      Customer: <br>
-      <select class="" name="CustomerId">
-        <%if (dataCustomer){dataCustomer.forEach(rows=>{%>
-          <option value="<%=rows.id%>"><%=rows.name%></option>
-        <%})}%>
-      </select><br>
+      <input type="hidden" value="<%-sessionId%>" name="CustomerId">
       Hari : <br>
       <input type="text" name="day" value="<%=dataSchedule[0].day%>"><br>
       Dokter : <br>

@@ -12,6 +12,7 @@ let path = require('path')
 // let signup = require('./routs/signup')
 
 let index = require('./routs/index')
+let login = require('./routs/login')
 let user = require('./routs/user')
 let doctor = require('./routs/doctor')
 let customer = require('./routs/customer')
@@ -22,13 +23,12 @@ app.use(session({
   secret:'secret',
   cookies:{}
 }))
+// app.use((req,res) => {
+// 	console.log(req.session)
+// })
 app.use('/static',express.static(__dirname + '/asset'));
 app.use('/', index);
-
-// app.use('/signup', signup);
-// app.use('/login', login);
-// app.use('/', tools.isLogin, index)
-
+app.use('/login', login);
 app.use('/users', user);
 app.use('/doctors', doctor);
 app.use('/customers', customer);

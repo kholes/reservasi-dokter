@@ -7,7 +7,12 @@ router.get('/', (req,res) => {
 		let prom = customers.map(customer => {
 			return new Promise((resolve,reject) => {
 				customer.getUser().then(user => {
-					customer['username'] = user.username
+					if(user){
+						customer['username'] = user.username
+					}
+					else {
+						customer['username'] = "<p style='color:red'>empty</p>"
+					}
 					resolve(customer)
 				})
 			})

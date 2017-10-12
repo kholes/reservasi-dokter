@@ -1,35 +1,33 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Add Data Schedule</title>
-  </head>
-  <body>
-    <h1>Add Data Schedules</h1>
-    <a href="/schedules">Return to Schedule</a><br><br>
+<%-include ../partial/header%>
+<body>
+<%-include ../partial/menu%>
+  <div class="container">
+    <h3>Add Schedule</h3>
     <form class="" action="/schedules/add" method="post">
-      Hari:<br>
+      <p>Hari:</p>
       <select class="" name="day">
         <%if (hari){hari.forEach(rows=>{%>
           <option value="<%=rows.hari%>"><%=rows.hari%></option>
         <%})}%>
       </select><br>
-      Jam:<br>
+      <p>Jam:</p>
       <%let waktu_conv = new Date()%>
     	<%let jam = waktu_conv.getHours()%>
       <%let menit = waktu_conv.getMinutes()%>
       <%let waktu = '0'+jam+':'+menit%>
-      <input type="time" name="time" value="<%=waktu%>"><br>
-      </script>
-      Dokter: <br>
+      <input type="time" name="time" value="<%=waktu%>">
+      <p>Dokter:</p>
       <select class="" name="DoctorId">
         <%if (dataDoctor){dataDoctor.forEach(rows=>{%>
           <option value="<%=rows.id%>"><%=rows.name%></option>
         <%})}%>
-      </select><br>
-      Maximum Pelanggan:<br>
-      <input type="text" name="max_customer" value=""><br><br>
-      <button type="submit" name="button">Add Schedule</button>
+      </select>
+      <p>
+      Maximum Pelanggan:
+      </p>
+      <input type="text" name="max_customer">
+      <input type="submit" value="Add Schedule">
     </form>
+    </div>
   </body>
 </html>

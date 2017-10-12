@@ -16,7 +16,7 @@
 					<h3><i class="fa fa-check-square-o"></i> Reservasi</h3>
 				</div>
 				<form action="/reservations/add/" method="post">
-					<input type="hidden" name="tanggal" value="" id="box">
+					<input type="text" name="tanggal" value="" id="box">
 					<table>
 						<th>Hari</th>
 						<th>Jam</th>
@@ -30,7 +30,7 @@
 								<td><%=rows.Doctor.name%></td>
 								<td><%=rows.Doctor.specialist%></td>
 								<td>
-									<a href="/reservations/add/<%=rows.id%>">Pesan</a>									
+									<a href="/reservations/add/<%=rows.id%>">Pesan</a>
 									<!-- <input type="checkbox" name="/reservations/add/<%=rows.id%>" value="Pesan"> -->
 									<!-- <a href="/reservations/add/<%=rows.id%>">Pesan</a> -->
 								</td>
