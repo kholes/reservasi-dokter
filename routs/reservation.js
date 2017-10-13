@@ -2,24 +2,30 @@ const express = require('express')
 const router = express.Router()
 const models = require('../models')
 const tools = require('../helper/tools')
-// router.post('/add/:id', (req,res) => {
-//   models.Schedule.findAll({where:{id:req.params.id},include:[{model:models.Doctor}]})
-//   .then(rowsSchedule=>{
-//     models.Customer.findAll()
-//     .then(rowsCustomer=>{
-//       res.render('./reservation/reservation_add',{data:req.body,dataSchedule:rowsSchedule,dataCustomer:rowsCustomer,message:''});
-//     })
-//   })
-// })
-router.get('/add/:id', (req,res) => {
+router.post('/add', (req,res) => {
   if(!req.session.isLogin) {
-    res.redirect('/login/reservation/'+req.params.id)
+    res.redirect('/login/reservation/'+req.body.ScheduleId+'/'+req.body.tanggal)
+  }
+  models.Schedule.findAll({where:{id:req.body.ScheduleId},include:[{model:models.Doctor}]})
+  .then(rowsSchedule=>{
+    models.Customer.findAll()
+    .then(rowsCustomer=>{
+      res.render('./reservation/reservation_add',{tanggal:req.body.tanggal,sessionId:req.session.user.idUser,dataSchedule:rowsSchedule,dataCustomer:rowsCustomer,message:''});
+    })
+  })
+  .catch(err=>{
+    res.send(err);
+  })
+})
+router.get('/add/:id/:tanggal', (req,res) => {
+  if(!req.session.isLogin) {
+    res.redirect('/login/reservation/'+req.params.id+'/'+req.params.tanggal)
   }
   models.Schedule.findAll({where:{id:req.params.id},include:[{model:models.Doctor}]})
   .then(rowsSchedule=>{
     models.Customer.findAll()
     .then(rowsCustomer=>{
-      res.render('./reservation/reservation_add',{sessionId:req.session.user.idUser,dataSchedule:rowsSchedule,dataCustomer:rowsCustomer,message:''});
+      res.render('./reservation/reservation_add',{tanggal:req.params.tanggal,sessionId:req.session.user.idUser,dataSchedule:rowsSchedule,dataCustomer:rowsCustomer,message:''});
     })
   })
   .catch(err=>{
@@ -57,7 +63,7 @@ function hariKe(hari) {
     return 6;
   }
 }
-router.post('/add/:id', (req,res) => {
+router.post('/add/:id/:tanggal', (req,res) => {
   let date_select = hariKe(req.body.day);
   let date_order = parseDate(req.body.date);
   let date_now = new Date();
@@ -73,6 +79,7 @@ router.post('/add/:id', (req,res) => {
   }
 
   if (date_order.getDay()==date_select && date_order>date_now) {
+  // res.send(req.body)
     models.Reservation.create({
       date:`${req.body.date}`,
       ScheduleId:`${req.params.id}`,
@@ -103,7 +110,7 @@ router.post('/add/:id', (req,res) => {
         })
         Promise.all(promiseReservation)
         .then(rowsReservation=>{
-          res.render('./reservation/reservation_detil',{detilReservation:rowsReservation})
+          res.render('./reservation/reservation_detil',{tanggal:req.params.tanggal,detilReservation:rowsReservation})
         })
       })
     })
@@ -122,7 +129,7 @@ router.post('/add/:id', (req,res) => {
       models.Customer.findAll()
       .then(rowsCustomer=>{
         // res.send(rowsSchedule)
-        res.render('./reservation/reservation_add',{dataSchedule:rowsSchedule,dataCustomer:rowsCustomer,message:message});
+        res.render('./reservation/reservation_add',{tanggal:req.params.tanggal,sessionId:req.session.user.idUser,dataSchedule:rowsSchedule,dataCustomer:rowsCustomer,message:message});
       })
     })
     .catch(err=>{

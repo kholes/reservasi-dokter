@@ -40,10 +40,10 @@ router.post('/', (req,res) => {
 	})
 })
 
-router.get('/reservation/:id', (req,res) => {
-	res.render('login_reservation', {msg:'',id:req.params.id})
+router.get('/reservation/:id/:tanggal', (req,res) => {
+	res.render('login_reservation', {msg:'',id:req.params.id,tanggal:req.params.tanggal})
 })
-router.post('/reservation/:id', (req,res) => {
+router.post('/reservation/:id/:tanggal', (req,res) => {
 	models.User.findOne({where:{username:req.body.username}})
 	.then(user => {
 		if(user) {
@@ -53,7 +53,7 @@ router.post('/reservation/:id', (req,res) => {
 				if(newPass === oldPass) {
 			        req.session.isLogin = true;
 			        req.session.user={username:user.username,role:user.role,idUser:user.id,logTime:new Date()}
-					res.redirect('/reservations/add/'+req.params.id)
+					res.redirect('/reservations/add/'+req.params.id+'/'+req.params.tanggal)
 				} else {
 					res.render('/reservations/add/', {msg:'<p class="msg" style="color:red">Username or password not match!</p>',title:'Add Student',role:req.session.user})
 				}
