@@ -1,0 +1,49 @@
+<%-include ../partial/header%>
+<body>
+<%-include ../partial/menu%>
+<div class="container">
+<h3>Reservations List</h3><br>
+<%let date_conv = new Date()%>
+<%let date = date_conv.getFullYear() + '-' +(date_conv.getMonth()+1) + '-' + date_conv.getDate()%>
+<!-- <input type="text" name="" value="<%=date%>"> -->
+<form class="" action="/reservations" method="post" align="center">
+    <!-- <div class=""align="center" > -->
+        <select class="" name="status" width=400px>
+            <option value="all">--all--</option>
+            <option value="order">order</option>
+            <option value="konsultasi">konsultasi</option>
+            <option value="selesai">selesai</option>
+            <option value="batal">batal</option>
+        </select>
+        <input type="submit" name="" value="Tampilkan">
+    <!-- </div><br> -->
+</form>
+<table>
+    <th>Id Order</th>
+    <th>Tgl Order</th>
+    <th>Tgl Kunjungan</th>
+    <th>Hari Kunjungan</th>
+    <th>Nama Dokter</th>
+    <th>Spesialis</th>
+    <th>Status</th>
+    <th>Actions</th>
+    <% dataReservation.forEach((i) => {%>
+    <tr>
+        <%let date_conv = i.createdAt%>
+        <%let date_created = date_conv.getFullYear() + '-' + +(date_conv.getMonth()+1) + '-' + date_conv.getDate()%>
+        <td><%-i.id%></td>
+        <td><%-date_created%></td>
+        <td><%-i.date%></td>
+        <td><%-i.day%></td>
+        <td><%-i.name%></td>
+        <td><%-i.specialist%></td>
+        <td><%-i.status%></td>
+            <td><a href="/reservations/set_status/<%=i.id%>/<%=i.status%>">Set Status</a></td>
+        <!-- <%if (i.status=='order'||i.status=='konsultasi') {%> -->   
+        <!-- <%}%> -->
+    </tr>
+    <%})%>
+</table>
+</div>
+</body>
+</html>
