@@ -19,8 +19,8 @@ h2 {
 }
 h3 {
 	font-size: 24px;
-	font-weight: normal;
-	color: #3B3B3B
+	font-weight: bold;
+	color: orange;
 }
 h3 a {
 	font-size: 18px;
@@ -46,6 +46,15 @@ a {
 a:hover {
 	text-decoration: none; 
 	color:#FF7F00 
+}
+#box {
+	border: none;
+	width: 100%;
+	text-align: center;
+	font-size: 24px;
+	color: orange;
+	font-weight: bold;
+	letter-spacing: 2px;
 }
 .top {
 	display: block;
@@ -156,6 +165,23 @@ a:hover {
 	border: 1px solid #d8d8d8;
   	box-shadow: 0 3px 8px rgba(0, 0, 0, 0.125);
 }
+.wrp-form {
+	display: block;
+	width: 500px;
+	padding: 10px;
+	margin: auto;
+	min-height: 200px;
+	border: 1px solid #d8d8d8;
+  	box-shadow: 0 3px 8px rgba(0, 0, 0, 0.125);
+}
+.wrp-form td {
+	padding: 10px;
+	box-shadow:none;
+	font-size: 14px;
+	font-weight: bold;
+	color: #333;
+	letter-spacing: 2px;
+}
 .content {
 	display: block;
 	width: 69%;
@@ -231,19 +257,29 @@ form {
 form p {
 	padding:10px 0; 
 	letter-spacing: 1px; 
-	color: #666
+	color: #333;
+		font-size:14px;
+	font-weight: bold;
+	letter-spacing: 2px;
+
 }
 form input[type='text']{
 	width:90%;
 	border:1px solid #ccc; 
 	height: 35px;
-	padding: 10px
+	padding: 10px;
+	font-size:14px;
+	font-weight: bold;
+	letter-spacing: 2px;
 }
 form input[type='password']{
 	width:90%;
 	border:1px solid #ccc; 
 	height: 35px;
 	padding: 10px;
+	font-size:14px;
+	font-weight: bold;
+	letter-spacing: 2px;
 }
 form input[type='time']{
 	width:80px;
@@ -251,18 +287,34 @@ form input[type='time']{
 	border:1px solid #ccc; 
 	height: 20px;
 	padding: 10px;
+	font-size:14px;
+	font-weight: bold;
+	letter-spacing: 2px;
+}
+form input[type='date']{
+	min-width:80px;
+	text-align: center;
+	border:1px solid #ccc; 
+	height: 20px;
+	padding: 10px;
+	font-size:14px;
+	font-weight: bold;
+	letter-spacing: 2px;
 }
 form select{
 	width:92%;
 	border:1px solid #ccc; 
 	height: 40px;
 	padding: 10px;
+	font-size:14px;
+	font-weight: bold;
+	letter-spacing: 2px;
 }
 form input[type='submit']{
 	border: none;
 	min-width:100px; 
 	color:#fff; 
-	font-size: 12px;
+	font-size: 14px;
 	text-transform: uppercase;
 	font-weight: bold;
 	letter-spacing: 1px;

@@ -1,27 +1,29 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Pesan Tempat</title>
-  </head>
-  <body>
-    <h1>Pesan Tempat</h1>
-    <a href="/">Return to Home</a><br><br>
-    <%=message%>
-    <%-data.tanggal%>
-    <form class="" action="/reservations/add/<%=dataSchedule[0].id%>" method="post">
-      <input type="hidden" value="<%-sessionId%>" name="CustomerId">
-      Hari : <br>
-      <input type="text" name="day" value="<%=dataSchedule[0].day%>"><br>
-      Dokter : <br>
-      <input type="text" name="doctor" value="<%=dataSchedule[0].Doctor.name%>"><br>
-      Spesialis : <br>
-      <input type="text" name="specialist" value="<%=dataSchedule[0].Doctor.specialist%>"><br>
-      Tanggal : <br>
-      <%let date_conv = new Date()%>
-    	<%let date = date_conv.getFullYear() + '-' + +(date_conv.getMonth()+1) + '-' + date_conv.getDate()%>
-      <input type="date" name="date" value="<%=date%>"><br><br>
-      <button type="submit" name="button">Pesan</button>
+<%-include ../partial/header%>
+<body>
+  <%-include ../partial/menu%>
+    <div class="container">
+    <div class="wrp-form">
+      <div class="top">
+        <h3><i class="fa fa-calendar"></i> Form Reservasi</h3>
+      </div>
+      <form class="" action="/reservations/add/<%=dataSchedule[0].id%>/<%=tanggal%>" method="post">
+        <input type="hidden" value="<%-sessionId%>" name="CustomerId">
+        <p>Hari : </p>
+        <input type="text" name="day" value="<%=dataSchedule[0].day%>">
+        <p>Dokter :</p>
+        <input type="text" name="doctor" value="<%=dataSchedule[0].Doctor.name%>"><br>
+        <p>Spesialis :</p>
+        <input type="text" name="specialist" value="<%=dataSchedule[0].Doctor.specialist%>">
+        <p>
+        Tanggal :
+        </p>
+        <%let date_conv = new Date()%>
+      	<%let date = date_conv.getFullYear() + '-' + +(date_conv.getMonth()+1) + '-' + date_conv.getDate()%>
+        <input type="date" name="date" value="<%=tanggal%>">
+        <p style="color:red"><%=message%></p>
+        <input type="submit" value="Kirim">
     </form>
+    </div>
+    </div>
   </body>
 </html>
